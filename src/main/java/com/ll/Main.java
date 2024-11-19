@@ -15,10 +15,16 @@ class App {
 
         Scanner scanner = new Scanner(System.in); //스캐너 생성
 
-        System.out.print("명령) ");
-        String cmd = scanner.nextLine();
+        while (true) {
+            System.out.print("명령) ");
+            String cmd = scanner.nextLine();
 
-        System.out.println("입력된 명령어 : %s".formatted(cmd));
+            System.out.println("입력된 명령어 : %s".formatted(cmd));
+
+            if (cmd.equals("종료")) {
+                break;
+            }
+        }
 
         scanner.close(); //스캐너 종료
     }
