@@ -34,10 +34,7 @@ class App {
                 String author = scanner.nextLine();
                 int id = ++lastId;
 
-                WiseSaying wiseSaying = new WiseSaying();
-                wiseSaying.id = id;
-                wiseSaying.content = content;
-                wiseSaying.author = author;
+                WiseSaying wiseSaying = new WiseSaying(id, content, author);
 
                 lastWiseSaying = wiseSaying;
 
@@ -58,4 +55,10 @@ class WiseSaying {
     int id;
     String content;
     String author;
+
+    WiseSaying(int id, String content, String author) {
+        this.id = id;
+        this.content = content;
+        this.author = author;
+    }
 }
