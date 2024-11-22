@@ -16,6 +16,7 @@ class App {
         Scanner scanner = new Scanner(System.in); //스캐너 생성
 
         int lastId = 0;
+        WiseSaying lastWiseSaying = null;
 
         while (true) {
             System.out.print("명령) ");
@@ -32,10 +33,29 @@ class App {
                 System.out.print("작가 : ");
                 String author = scanner.nextLine();
                 int id = ++lastId;
+
+                WiseSaying wiseSaying = new WiseSaying();
+                wiseSaying.id = id;
+                wiseSaying.content = content;
+                wiseSaying.author = author;
+
+                lastWiseSaying = wiseSaying;
+
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(id));
+            } else if (cmd.equals("목록")) {
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("----------------------");
+                System.out.println("%d / %s / %s".formatted(lastWiseSaying.id, lastWiseSaying.author, lastWiseSaying.content));
+
             }
         }
 
         scanner.close(); //스캐너 종료
     }
+}
+
+class WiseSaying {
+    int id;
+    String content;
+    String author;
 }
